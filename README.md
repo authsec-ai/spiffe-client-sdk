@@ -7,11 +7,6 @@ test-k8s
 pip install git+https://github.com/authsec-ai/spiffe-client-sdk.git
 ```
 
-## Install from local
-```bash
-pip install -e .
-```
-
 ## Usage
 ```python
 from spiffe_client_sdk import SpiffeSDK, Config
