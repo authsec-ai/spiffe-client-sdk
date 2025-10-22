@@ -194,11 +194,11 @@ class SpiffeSDK:
 
         # Ensure socket path has unix:// scheme for spiffe library
         socket_path = self.config.socket_path
-        if not socket_path.startswith("unix://"):
-            socket_path = f"unix://{socket_path}"
+        if not self.config.socket_path.startswith("unix://"):
+            self.config.socket_path = f"unix://{self.config.socket_path}"
 
         # Set environment variable for spiffe library
-        os.environ['SPIFFE_ENDPOINT_SOCKET'] = socket_path
+        os.environ['SPIFFE_ENDPOINT_SOCKET'] = self.config.socket_path
 
         # Initialize optional headless API for certificate verification
         if self.config.headless_api_url:
